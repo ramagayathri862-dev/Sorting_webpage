@@ -1,190 +1,227 @@
 body{
+
     margin:0;
-    height:100vh;
+
+    min-height:100vh;
+
     font-family:Arial;
 
-    background:url("https://static.vecteezy.com/system/resources/previews/015/882/420/non_2x/modern-minimalist-dark-blue-premium-abstract-background-with-luxury-geometric-dark-shape-exclusive-wallpaper-design-for-website-poster-brochure-presentation-free-vector.jpg") no-repeat center/cover;
+    background:url(
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+    )
+    no-repeat center/cover;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
+    padding:20px;
 }
 
 /* ================= HOME PAGE ================= */
 
 .home-box{
+
     width:80%;
+
     max-width:900px;
-    padding:90px 70px;
+
+    padding:80px 60px;
 
     background:rgba(255,255,255,0.18);
-    backdrop-filter:blur(4px);
+
+    backdrop-filter:blur(5px);
 
     border-radius:25px;
+
     text-align:center;
+
     color:white;
 
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.3);
 
-    /* ANIMATION */
-    opacity:0;
-    transform:translateY(40px);
-    animation:fadeIn 1.5s ease forwards;
-    animation-delay:0.5s;
+    animation:fadeIn 1.2s ease;
 }
 
 .home-box h1{
-    font-size:60px;
-    font-weight:bold;
-    margin-bottom:20px;
 
-    opacity:0;
-    transform:translateY(-20px);
-    animation:slideDown 1s ease forwards;
-    animation-delay:1s;
+    font-size:55px;
+
+    margin-bottom:20px;
 }
 
 .subheading{
-    font-size:20px;
-    margin-bottom:40px;
-    color:#e0e0e0;
 
-    opacity:0;
-    animation:fadeIn 1s ease forwards;
-    animation-delay:1.5s;
+    font-size:22px;
+
+    margin-bottom:40px;
 }
 
 /* ================= INPUT POPUP ================= */
 
 .popup{
+
     width:400px;
+
     padding:40px;
 
-    background:rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.18);
+
     backdrop-filter:blur(6px);
 
-    border-radius:15px;
+    border-radius:20px;
+
     text-align:center;
+
     color:white;
 
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.4);
 }
 
 .popup h2{
-    margin-bottom:15px;
+
+    margin-bottom:20px;
 }
 
 /* ================= COMMON ================= */
 
 input{
+
     width:100%;
-    padding:12px;
+
+    padding:14px;
+
     margin:15px 0;
-    border-radius:8px;
+
     border:none;
+
     outline:none;
+
+    border-radius:10px;
+
+    font-size:16px;
 }
 
 button{
-    padding:16px 35px;
-    font-size:18px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    background:#ff9800;
-    color:white;
-    transition:0.3s;
 
-    /* animation for button on home */
-    opacity:0;
-    animation:fadeIn 1s ease forwards;
-    animation-delay:2s;
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ff9800;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
 
 button:hover{
+
     background:#e68900;
-    transform:scale(1.08);
+
+    transform:scale(1.05);
 }
 
-/* ================= RESULT PAGE ================= */
+/* ================= RESULT ================= */
 
 .result-container{
+
     display:none;
-    width:80%;
-    max-width:900px;
+
+    width:90%;
+
+    max-width:1200px;
 
     background:white;
-    color:#333;
 
     padding:30px;
-    border-radius:15px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    border-radius:20px;
 
     text-align:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.3);
 }
 
 .result-container h1{
-    margin-bottom:20px;
+
+    margin-bottom:25px;
 }
 
 .cards{
+
     display:flex;
-    gap:20px;
+
     flex-wrap:wrap;
+
+    gap:20px;
+
     justify-content:center;
 }
 
 .card{
-    flex:1;
-    min-width:250px;
+
     background:#f4f6f9;
+
     padding:20px;
-    border-radius:12px;
+
+    border-radius:15px;
+
+    width:250px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card h2{
+
     color:#0072ff;
 }
 
-/* Winner spacing */
 .winner{
+
     margin-top:25px;
-    margin-bottom:20px;
 
     background:#d4edda;
+
     padding:15px;
-    text-align:center;
-    font-weight:bold;
+
     border-radius:10px;
+
+    font-weight:bold;
 }
 
-/* Try Again button center */
 .try-btn{
-    display:block;
-    margin:0 auto;
-    padding:12px 25px;
 
-    background:#ff9800;
-    color:white;
-
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+    margin-top:20px;
 }
 
-/* ================= ANIMATIONS ================= */
+/* ================= ANIMATION ================= */
 
 @keyframes fadeIn{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 
-@keyframes slideDown{
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+    }
+
     to{
+
         opacity:1;
+
         transform:translateY(0);
     }
 }
@@ -194,19 +231,24 @@ button:hover{
 @media(max-width:768px){
 
     .home-box{
-        width:90%;
-        padding:50px 30px;
+
+        width:95%;
+
+        padding:40px 20px;
     }
 
     .home-box h1{
+
         font-size:35px;
     }
 
     .popup{
+
         width:90%;
     }
 
-    .cards{
-        flex-direction:column;
+    .card{
+
+        width:100%;
     }
 }
