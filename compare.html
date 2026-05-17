@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- INPUT BOX -->
+
+<div class="popup" id="formBox">
+
+    <h2>Enter Numbers to Compare</h2>
+
+    <input
+        type="text"
+        id="numbers"
+        placeholder="5,2,8,1,9">
+
+    <button onclick="compare()">
+        Compare
+    </button>
+
+</div>
+
+<!-- RESULT BOX -->
+
+<div class="result-container" id="resultBox">
+
+    <h1>Sorting Results</h1>
+
+    <div class="cards">
+
+        <!-- Bubble Sort -->
+
+        <div class="card">
+
+            <h2>Bubble Sort</h2>
+
+            <p id="bubbleResult"></p>
+
+            <p id="bubbleTime"></p>
+
+            <p>Complexity: O(n²)</p>
+
+        </div>
+
+        <!-- Merge Sort -->
+
+        <div class="card">
+
+            <h2>Merge Sort</h2>
+
+            <p id="mergeResult"></p>
+
+            <p id="mergeTime"></p>
+
+            <p>Complexity: O(n log n)</p>
+
+        </div>
+
+        <!-- Selection Sort -->
+
+        <div class="card">
+
+            <h2>Selection Sort</h2>
+
+            <p id="selectionResult"></p>
+
+            <p id="selectionTime"></p>
+
+            <p>Complexity: O(n²)</p>
+
+        </div>
+
+        <!-- Insertion Sort -->
+
+        <div class="card">
+
+            <h2>Insertion Sort</h2>
+
+            <p id="insertionResult"></p>
+
+            <p id="insertionTime"></p>
+
+            <p>Complexity: O(n²)</p>
+
+        </div>
+
+        <!-- Quick Sort -->
+
+        <div class="card">
+
+            <h2>Quick Sort</h2>
+
+            <p id="quickResult"></p>
+
+            <p id="quickTime"></p>
+
+            <p>Complexity: O(n log n)</p>
+
+        </div>
+
+    </div>
+
+    <!-- WINNER -->
+
+    <div class="winner" id="winner"></div>
+
+    <!-- TRY AGAIN -->
+
+    <button class="try-btn" onclick="reset()">
+        Try Again
+    </button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
