@@ -1,8 +1,39 @@
+let allSteps = {};
+
+// ================= RESTORE RESULT PAGE =================
+
+window.onload = function(){
+
+    let saved =
+        sessionStorage.getItem(
+            "savedResults"
+        );
+
+    if(saved){
+
+        document.getElementById(
+            "formBox"
+        ).style.display = "none";
+
+        document.getElementById(
+            "resultBox"
+        ).style.display = "block";
+
+        document.getElementById(
+            "resultBox"
+        ).innerHTML = saved;
+    }
+};
+
 // ================= BUBBLE SORT =================
 
 function bubbleSort(arr){
 
     let a = [...arr];
+
+    let steps = [];
+
+    steps.push([...a]);
 
     for(let i=0; i<a.length; i++){
 
@@ -12,51 +43,67 @@ function bubbleSort(arr){
 
                 [a[j], a[j+1]] =
                 [a[j+1], a[j]];
+
+                steps.push([...a]);
             }
         }
     }
 
-    return a;
+    return {
+        sorted:a,
+        steps:steps
+    };
 }
 
 // ================= MERGE SORT =================
 
 function mergeSort(arr){
 
-    if(arr.length <= 1){
+    let steps = [];
 
-        return arr;
-    }
+    function merge(a){
 
-    let mid = Math.floor(arr.length/2);
+        if(a.length <= 1){
 
-    let left =
-        mergeSort(arr.slice(0,mid));
-
-    let right =
-        mergeSort(arr.slice(mid));
-
-    let result = [];
-
-    let i=0;
-    let j=0;
-
-    while(i<left.length &&
-          j<right.length){
-
-        if(left[i] < right[j]){
-
-            result.push(left[i++]);
-
-        }else{
-
-            result.push(right[j++]);
+            return a;
         }
+
+        let mid =
+            Math.floor(a.length/2);
+
+        let left =
+            merge(a.slice(0,mid));
+
+        let right =
+            merge(a.slice(mid));
+
+        let result = [];
+
+        while(left.length &&
+              right.length){
+
+            if(left[0] < right[0]){
+
+                result.push(left.shift());
+
+            }else{
+
+                result.push(right.shift());
+            }
+        }
+
+        let merged =
+            [...result,...left,...right];
+
+        steps.push([...merged]);
+
+        return merged;
     }
 
-    return result
-        .concat(left.slice(i))
-        .concat(right.slice(j));
+    return {
+        sorted:merge(arr),
+        steps:steps
+    };
 }
 
 // ================= SELECTION SORT =================
@@ -64,6 +111,10 @@ function mergeSort(arr){
 function selectionSort(arr){
 
     let a = [...arr];
+
+    let steps = [];
+
+    steps.push([...a]);
 
     for(let i=0; i<a.length; i++){
 
@@ -79,9 +130,14 @@ function selectionSort(arr){
 
         [a[i], a[min]] =
         [a[min], a[i]];
+
+        steps.push([...a]);
     }
 
-    return a;
+    return {
+        sorted:a,
+        steps:steps
+    };
 }
 
 // ================= INSERTION SORT =================
@@ -89,6 +145,10 @@ function selectionSort(arr){
 function insertionSort(arr){
 
     let a = [...arr];
+
+    let steps = [];
+
+    steps.push([...a]);
 
     for(let i=1; i<a.length; i++){
 
@@ -105,49 +165,68 @@ function insertionSort(arr){
         }
 
         a[j+1] = key;
+
+        steps.push([...a]);
     }
 
-    return a;
+    return {
+        sorted:a,
+        steps:steps
+    };
 }
 
 // ================= QUICK SORT =================
 
 function quickSort(arr){
 
-    if(arr.length <= 1){
+    let steps = [];
 
-        return arr;
-    }
+    function quick(a){
 
-    let pivot =
-        arr[arr.length - 1];
+        if(a.length <= 1){
 
-    let left = [];
-
-    let right = [];
-
-    for(let i=0;
-        i<arr.length-1;
-        i++){
-
-        if(arr[i] < pivot){
-
-            left.push(arr[i]);
-
-        }else{
-
-            right.push(arr[i]);
+            return a;
         }
+
+        let pivot =
+            a[a.length-1];
+
+        let left = [];
+
+        let right = [];
+
+        for(let i=0;
+            i<a.length-1;
+            i++){
+
+            if(a[i] < pivot){
+
+                left.push(a[i]);
+
+            }else{
+
+                right.push(a[i]);
+            }
+        }
+
+        let result = [
+
+            ...quick(left),
+
+            pivot,
+
+            ...quick(right)
+        ];
+
+        steps.push([...result]);
+
+        return result;
     }
 
-    return [
-
-        ...quickSort(left),
-
-        pivot,
-
-        ...quickSort(right)
-    ];
+    return {
+        sorted:quick(arr),
+        steps:steps
+    };
 }
 
 // ================= COMPARE =================
@@ -177,60 +256,90 @@ function compare(){
         return;
     }
 
-    // Bubble Sort
+    // ================= BUBBLE =================
 
     let start = performance.now();
 
-    let bubble =
+    let bubbleData =
         bubbleSort([...numbers]);
+
+    let bubble =
+        bubbleData.sorted;
 
     let bubbleTime =
         (performance.now() - start)
         .toFixed(4);
 
-    // Merge Sort
+    allSteps["Bubble Sort"] =
+        bubbleData.steps;
+
+    // ================= MERGE =================
 
     start = performance.now();
 
-    let merge =
+    let mergeData =
         mergeSort([...numbers]);
+
+    let merge =
+        mergeData.sorted;
 
     let mergeTime =
         (performance.now() - start)
         .toFixed(4);
 
-    // Selection Sort
+    allSteps["Merge Sort"] =
+        mergeData.steps;
+
+    // ================= SELECTION =================
 
     start = performance.now();
 
-    let selection =
+    let selectionData =
         selectionSort([...numbers]);
+
+    let selection =
+        selectionData.sorted;
 
     let selectionTime =
         (performance.now() - start)
         .toFixed(4);
 
-    // Insertion Sort
+    allSteps["Selection Sort"] =
+        selectionData.steps;
+
+    // ================= INSERTION =================
 
     start = performance.now();
 
-    let insertion =
+    let insertionData =
         insertionSort([...numbers]);
+
+    let insertion =
+        insertionData.sorted;
 
     let insertionTime =
         (performance.now() - start)
         .toFixed(4);
 
-    // Quick Sort
+    allSteps["Insertion Sort"] =
+        insertionData.steps;
+
+    // ================= QUICK =================
 
     start = performance.now();
 
-    let quick =
+    let quickData =
         quickSort([...numbers]);
+
+    let quick =
+        quickData.sorted;
 
     let quickTime =
         (performance.now() - start)
         .toFixed(4);
+
+    allSteps["Quick Sort"] =
+        quickData.steps;
 
     // ================= DISPLAY =================
 
@@ -321,7 +430,21 @@ function compare(){
         fastest +
         " is Faster";
 
-    // SHOW RESULT
+    // ================= SAVE =================
+
+    sessionStorage.setItem(
+        "savedResults",
+        document.getElementById(
+            "resultBox"
+        ).innerHTML
+    );
+
+    sessionStorage.setItem(
+        "allSteps",
+        JSON.stringify(allSteps)
+    );
+
+    // ================= SHOW RESULT =================
 
     document.getElementById(
         "formBox"
@@ -332,9 +455,38 @@ function compare(){
     ).style.display = "block";
 }
 
+// ================= SHOW DETAILS =================
+
+function showDetails(sortName){
+
+    let savedSteps =
+        JSON.parse(
+            sessionStorage.getItem(
+                "allSteps"
+            )
+        );
+
+    sessionStorage.setItem(
+        "sortName",
+        sortName
+    );
+
+    sessionStorage.setItem(
+        "steps",
+        JSON.stringify(
+            savedSteps[sortName]
+        )
+    );
+
+    window.location.href =
+        "details.html";
+}
+
 // ================= RESET =================
 
 function reset(){
+
+    sessionStorage.clear();
 
     document.getElementById(
         "formBox"
