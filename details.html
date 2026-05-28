@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorting Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="result-container" style="display:block;">
+
+    <h1 id="title"></h1>
+
+    <div class="cards" id="stepsBox"></div>
+
+    <br>
+
+    <button onclick="goBack()">
+        Back
+    </button>
+
+</div>
+
+<script>
+
+let sortName =
+    sessionStorage.getItem(
+        "sortName"
+    );
+
+let steps =
+    JSON.parse(
+        sessionStorage.getItem(
+            "steps"
+        )
+    );
+
+document.getElementById(
+    "title"
+).innerHTML =
+
+    sortName + " Steps";
+
+let output = "";
+
+for(let i=0; i<steps.length; i++){
+
+    output += `
+
+        <div class="card">
+
+            <h3>Step ${i}</h3>
+
+            <p>${steps[i].join(", ")}</p>
+
+        </div>
+    `;
+}
+
+document.getElementById(
+    "stepsBox"
+).innerHTML = output;
+
+function goBack(){
+
+    window.location.href =
+        "compare.html";
+}
+
+</script>
+
+</body>
+</html>
