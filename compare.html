@@ -32,7 +32,7 @@
 
     <div class="cards">
 
-        <!-- Bubble Sort -->
+        <!-- Bubble -->
 
         <div class="card">
 
@@ -44,9 +44,13 @@
 
             <p>Complexity: O(n²)</p>
 
+            <button onclick="showDetails('Bubble Sort')">
+                More Details
+            </button>
+
         </div>
 
-        <!-- Merge Sort -->
+        <!-- Merge -->
 
         <div class="card">
 
@@ -58,9 +62,13 @@
 
             <p>Complexity: O(n log n)</p>
 
+            <button onclick="showDetails('Merge Sort')">
+                More Details
+            </button>
+
         </div>
 
-        <!-- Selection Sort -->
+        <!-- Selection -->
 
         <div class="card">
 
@@ -72,9 +80,13 @@
 
             <p>Complexity: O(n²)</p>
 
+            <button onclick="showDetails('Selection Sort')">
+                More Details
+            </button>
+
         </div>
 
-        <!-- Insertion Sort -->
+        <!-- Insertion -->
 
         <div class="card">
 
@@ -86,9 +98,13 @@
 
             <p>Complexity: O(n²)</p>
 
+            <button onclick="showDetails('Insertion Sort')">
+                More Details
+            </button>
+
         </div>
 
-        <!-- Quick Sort -->
+        <!-- Quick -->
 
         <div class="card">
 
@@ -100,21 +116,41 @@
 
             <p>Complexity: O(n log n)</p>
 
+            <button onclick="showDetails('Quick Sort')">
+                More Details
+            </button>
+
         </div>
 
     </div>
 
-    <!-- WINNER -->
-
     <div class="winner" id="winner"></div>
-
-    <!-- TRY AGAIN -->
 
     <button class="try-btn" onclick="reset()">
         Try Again
     </button>
 
 </div>
+
+<script>
+
+window.onload = function(){
+
+    if(localStorage.getItem(
+        "compareVisible"
+    ) === "true"){
+
+        document.getElementById(
+            "formBox"
+        ).style.display = "none";
+
+        document.getElementById(
+            "resultBox"
+        ).style.display = "block";
+    }
+}
+
+</script>
 
 <script src="script.js"></script>
 
