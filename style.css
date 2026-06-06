@@ -4,12 +4,12 @@ body{
 
     min-height:100vh;
 
-    font-family:Arial;
+    font-family:Arial, sans-serif;
 
     background:url(
     "https://thumbs.dreamstime.com/b/design-project-background-science-concept-composed-blue-hexagons-lines-abstract-style-design-project-356912616.jpg"
     )
-    no-repeat center/cover;
+    no-repeat center center/cover;
 
     display:flex;
 
@@ -123,11 +123,6 @@ button{
     cursor:pointer;
 
     transition:0.3s;
-
-    #stepsBox{
-
-    margin-top:20px;
-}
 }
 
 button:hover{
@@ -141,6 +136,7 @@ button:hover{
 
     margin-top:20px;
 }
+
 /* ================= RESULT ================= */
 
 .result-container{
@@ -161,6 +157,10 @@ button:hover{
 
     box-shadow:
     0 10px 30px rgba(0,0,0,0.3);
+
+    max-height:90vh;
+
+    overflow-y:auto;
 }
 
 .result-container h1{
@@ -216,6 +216,87 @@ button:hover{
     margin-top:20px;
 }
 
+/* ================= DETAILS PAGE ================= */
+
+.info-section{
+
+    margin-top:40px;
+
+    text-align:left;
+
+    padding:20px;
+
+    background:#f9f9f9;
+
+    border-radius:15px;
+}
+
+.info-section h2{
+
+    color:#0072ff;
+
+    margin-top:30px;
+
+    margin-bottom:10px;
+}
+
+.info-section p{
+
+    line-height:1.8;
+
+    font-size:17px;
+}
+
+.info-section ul{
+
+    padding-left:25px;
+
+    line-height:1.8;
+}
+
+.info-section li{
+
+    margin-bottom:8px;
+}
+
+/* ================= TABLE ================= */
+
+.comparison-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:15px;
+
+    margin-bottom:20px;
+}
+
+.comparison-table th{
+
+    background:#0072ff;
+
+    color:white;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+}
+
+.comparison-table td{
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    text-align:center;
+}
+
+.comparison-table tr:nth-child(even){
+
+    background:#f2f2f2;
+}
+
 /* ================= ANIMATION ================= */
 
 @keyframes fadeIn{
@@ -259,5 +340,15 @@ button:hover{
     .card{
 
         width:100%;
+    }
+
+    .comparison-table{
+
+        font-size:14px;
+    }
+
+    .info-section{
+
+        padding:15px;
     }
 }
