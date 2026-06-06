@@ -13,6 +13,8 @@
 
     <div class="cards" id="stepsBox"></div>
 
+    <div id="infoBox"></div>
+
     <br>
 
     <button onclick="goBack()">
@@ -60,6 +62,322 @@ for(let i=0; i<steps.length; i++){
 document.getElementById(
     "stepsBox"
 ).innerHTML = output;
+
+
+/* ================= INFO SECTION ================= */
+
+let infoContent = "";
+
+if(sortName === "Bubble Sort"){
+
+infoContent = `
+<div class="info-section">
+
+<h2>About Bubble Sort</h2>
+
+<p>
+Bubble Sort repeatedly compares adjacent elements and swaps them if they are in the wrong order.
+</p>
+
+<h2>Uses of Bubble Sort</h2>
+
+<ul>
+<li>Educational purposes.</li>
+<li>Learning sorting concepts.</li>
+<li>Small datasets.</li>
+<li>Simple applications.</li>
+</ul>
+
+<h2>Real-Time Applications</h2>
+
+<ul>
+<li>Teaching DSA.</li>
+<li>Embedded systems.</li>
+<li>Checking nearly sorted data.</li>
+</ul>
+
+<h2>Time Complexity</h2>
+
+<table class="comparison-table">
+
+<tr>
+<th>Case</th>
+<th>Complexity</th>
+</tr>
+
+<tr><td>Best</td><td>O(n)</td></tr>
+<tr><td>Average</td><td>O(n²)</td></tr>
+<tr><td>Worst</td><td>O(n²)</td></tr>
+
+</table>
+
+<h2>Advantages</h2>
+
+<ul>
+<li>Easy to understand.</li>
+<li>Easy implementation.</li>
+<li>No extra memory.</li>
+</ul>
+
+<h2>Disadvantages</h2>
+
+<ul>
+<li>Slow for large datasets.</li>
+<li>Many comparisons.</li>
+<li>Not scalable.</li>
+</ul>
+
+</div>
+`;
+}
+
+else if(sortName === "Selection Sort"){
+
+infoContent = `
+<div class="info-section">
+
+<h2>About Selection Sort</h2>
+
+<p>
+Selection Sort repeatedly finds the minimum element and places it in its correct position.
+</p>
+
+<h2>Uses of Selection Sort</h2>
+
+<ul>
+<li>Small datasets.</li>
+<li>Memory-limited systems.</li>
+<li>Educational purposes.</li>
+</ul>
+
+<h2>Real-Time Applications</h2>
+
+<ul>
+<li>Embedded devices.</li>
+<li>Flash memory systems.</li>
+<li>Small-scale applications.</li>
+</ul>
+
+<h2>Time Complexity</h2>
+
+<table class="comparison-table">
+
+<tr>
+<th>Case</th>
+<th>Complexity</th>
+</tr>
+
+<tr><td>Best</td><td>O(n²)</td></tr>
+<tr><td>Average</td><td>O(n²)</td></tr>
+<tr><td>Worst</td><td>O(n²)</td></tr>
+
+</table>
+
+<h2>Advantages</h2>
+
+<ul>
+<li>Simple implementation.</li>
+<li>Less swapping.</li>
+<li>No extra memory.</li>
+</ul>
+
+<h2>Disadvantages</h2>
+
+<ul>
+<li>Slow for large data.</li>
+<li>Always O(n²).</li>
+</ul>
+
+</div>
+`;
+}
+
+else if(sortName === "Insertion Sort"){
+
+infoContent = `
+<div class="info-section">
+
+<h2>About Insertion Sort</h2>
+
+<p>
+Insertion Sort builds a sorted array one element at a time.
+</p>
+
+<h2>Uses of Insertion Sort</h2>
+
+<ul>
+<li>Small datasets.</li>
+<li>Nearly sorted arrays.</li>
+<li>Hybrid sorting algorithms.</li>
+</ul>
+
+<h2>Real-Time Applications</h2>
+
+<ul>
+<li>Online sorting.</li>
+<li>Database indexing.</li>
+<li>Card sorting analogy.</li>
+</ul>
+
+<h2>Time Complexity</h2>
+
+<table class="comparison-table">
+
+<tr>
+<th>Case</th>
+<th>Complexity</th>
+</tr>
+
+<tr><td>Best</td><td>O(n)</td></tr>
+<tr><td>Average</td><td>O(n²)</td></tr>
+<tr><td>Worst</td><td>O(n²)</td></tr>
+
+</table>
+
+<h2>Advantages</h2>
+
+<ul>
+<li>Efficient for small datasets.</li>
+<li>Stable sorting.</li>
+<li>Simple implementation.</li>
+</ul>
+
+<h2>Disadvantages</h2>
+
+<ul>
+<li>Slow for large datasets.</li>
+<li>Many shifts required.</li>
+</ul>
+
+</div>
+`;
+}
+
+else if(sortName === "Merge Sort"){
+
+infoContent = `
+<div class="info-section">
+
+<h2>About Merge Sort</h2>
+
+<p>
+Merge Sort uses divide and conquer by splitting arrays and merging them back in sorted order.
+</p>
+
+<h2>Uses of Merge Sort</h2>
+
+<ul>
+<li>Large datasets.</li>
+<li>External sorting.</li>
+<li>Linked lists.</li>
+</ul>
+
+<h2>Real-Time Applications</h2>
+
+<ul>
+<li>Databases.</li>
+<li>Distributed systems.</li>
+<li>Large file sorting.</li>
+</ul>
+
+<h2>Time Complexity</h2>
+
+<table class="comparison-table">
+
+<tr>
+<th>Case</th>
+<th>Complexity</th>
+</tr>
+
+<tr><td>Best</td><td>O(n log n)</td></tr>
+<tr><td>Average</td><td>O(n log n)</td></tr>
+<tr><td>Worst</td><td>O(n log n)</td></tr>
+
+</table>
+
+<h2>Advantages</h2>
+
+<ul>
+<li>Guaranteed O(n log n).</li>
+<li>Stable sorting.</li>
+<li>Excellent for large datasets.</li>
+</ul>
+
+<h2>Disadvantages</h2>
+
+<ul>
+<li>Requires extra memory.</li>
+<li>More complex implementation.</li>
+</ul>
+
+</div>
+`;
+}
+
+else{
+
+infoContent = `
+<div class="info-section">
+
+<h2>About Quick Sort</h2>
+
+<p>
+Quick Sort selects a pivot and partitions the array around it.
+</p>
+
+<h2>Uses of Quick Sort</h2>
+
+<ul>
+<li>General-purpose sorting.</li>
+<li>High-performance applications.</li>
+<li>Large datasets.</li>
+</ul>
+
+<h2>Real-Time Applications</h2>
+
+<ul>
+<li>Operating systems.</li>
+<li>Databases.</li>
+<li>Programming libraries.</li>
+</ul>
+
+<h2>Time Complexity</h2>
+
+<table class="comparison-table">
+
+<tr>
+<th>Case</th>
+<th>Complexity</th>
+</tr>
+
+<tr><td>Best</td><td>O(n log n)</td></tr>
+<tr><td>Average</td><td>O(n log n)</td></tr>
+<tr><td>Worst</td><td>O(n²)</td></tr>
+
+</table>
+
+<h2>Advantages</h2>
+
+<ul>
+<li>Very fast in practice.</li>
+<li>In-place sorting.</li>
+<li>Efficient cache usage.</li>
+</ul>
+
+<h2>Disadvantages</h2>
+
+<ul>
+<li>Worst case O(n²).</li>
+<li>Recursive implementation.</li>
+</ul>
+
+</div>
+`;
+}
+
+document.getElementById(
+    "infoBox"
+).innerHTML = infoContent;
 
 function goBack(){
 
